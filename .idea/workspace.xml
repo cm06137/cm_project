@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="144d260c-ca04-4fd4-b13b-7f56fefbe2e9" name="更改" comment="feat: 实现 container 接口">
-      <change afterPath="$PROJECT_DIR$/mcp_server/domain/mcp_server.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mcp_server/starter/starter.go" afterDir="false" />
+    <list default="true" id="144d260c-ca04-4fd4-b13b-7f56fefbe2e9" name="更改" comment="feat: 重构代码">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/container.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/container/container.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/module.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/container/module.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/option.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/container/option.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/singleton.go" beforeDir="false" afterPath="$PROJECT_DIR$/common/container/singleton.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,9 +114,21 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: 新增 container 接口" />
     <MESSAGE value="feat: 实现 container 接口" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 实现 container 接口" />
+    <MESSAGE value="feat: 重构代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 重构代码" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/common/container/module.go</url>
+          <line>57</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
