@@ -1,7 +1,7 @@
 package main
 
-import "fmt"
+import "github.com/cm06137/cm_project/container"
 
 func main() {
-	fmt.Println("Hello World")
+	container.InitOnce()
 }
