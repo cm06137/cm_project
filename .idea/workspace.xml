@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="144d260c-ca04-4fd4-b13b-7f56fefbe2e9" name="更改" comment="feat: 重构代码">
+    <list default="true" id="144d260c-ca04-4fd4-b13b-7f56fefbe2e9" name="更改" comment="feat: 搭建 mcp server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +112,8 @@
     <MESSAGE value="feat: 新增 container 接口" />
     <MESSAGE value="feat: 实现 container 接口" />
     <MESSAGE value="feat: 重构代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 重构代码" />
+    <MESSAGE value="feat: 搭建 mcp server" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 搭建 mcp server" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
