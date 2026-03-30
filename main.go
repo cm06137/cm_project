@@ -4,6 +4,9 @@ import (
 	"context"
 	"errors"
 	"fmt"
+	"log"
+	"net/http"
+
 	"github.com/cm06137/cm_project/common/container"
 	"github.com/cm06137/cm_project/mcp_server/starter"
 	"github.com/mark3labs/mcp-go/mcp"
@@ -22,7 +25,7 @@ func ContainerInit() {
 	// 实例化各容器内类型
 	c.MustInitialize()
 
-	server := server2.NewMCPServer("mcp server demo", "0.0.1", server2.WithToolCapabilities(false))
+	server := server2.NewMCPServer("mcp_server_demo", "0.0.1", server2.WithToolCapabilities(false))
 	//srv := server2.NewStreamableHTTPServer(server,
 	//	server2.WithEndpointPath("/:serverKey/stream"))
 
@@ -43,12 +46,30 @@ func ContainerInit() {
 	// 添加请求处理逻辑
 	server.AddTool(calculatorTool, calculateHandler)
 
-	if err := server2.ServeStdio(server); err != nil {
-		fmt.Printf("服务器启动失败: %v\n", err)
+	// 4. 创建一个可流式的 HTTP 服务器
+	// 这个 HTTP 服务器封装了原始的 MCP 服务器
+	// 默认的端点路径是 "/:serverKey/stream"，其中 :serverKey 会被替换为 mcpServer 的名称
+	streamingHTTPServer := server2.NewStreamableHTTPServer(
+		server,
+		// 可以通过 WithEndpointPath 来自定义流的 URL 路径
+		// server2.WithEndpointPath("/:serverKey/stream"), // 这是默认值
+	)
+
+	// 5. 将 HTTP 处理器注册到 Go 的标准 http 包上
+	http.Handle("/", streamingHTTPServer) // 根路径将处理所有 MCP 相关的请求
+
+	// 6. 启动 HTTP 服务器
+	addr := ":8080"
+	log.Printf("HTTP MCP Server starting on %s", addr)
+	log.Printf("Stream endpoint will be available at: http://localhost:%s/%s/stream", addr, "mcp_server_demo")
+	if err := http.ListenAndServe(addr, nil); err != nil {
+		log.Fatalf("HTTP server failed to start: %v", err)
 	}
 }
 
 func calculateHandler(ctx context.Context, req mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+	log.Printf("Calculate calculator called with req: %v", req)
+
 	op := req.Params.Arguments.(map[string]any)["operation"].(string)
 	x := req.Params.Arguments.(map[string]any)["x"].(float64)
 	y := req.Params.Arguments.(map[string]any)["y"].(float64)
